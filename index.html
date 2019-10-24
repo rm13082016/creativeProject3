@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get 2 Know</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="root">
+      <div id="header">
+        <h1>Get 2 Know Superheroes</h1>
+      </div>
+      <div id="content">
+        <div id="sidebar">
+          <p>Popular Searches</p>
+          <!-- Vue list of buttons -->
+          <button type="button" v-for="name in populars" v-on:click="loadChar(name)">{{name}}</button>
+        </div>
+        <div id="character">
+          <div id="search">
+            <label>Search: </label><input type="text" v-on:keyup="searchChar()" v-model="name">
+            <button type="button" v-for="suggestion in suggestions" v-on:click="loadChar(623)">{{suggestion}}</button>
+          </div>
+          <div id="bio">
+          <div id="info"><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p></div>
+          <div id="image"><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"><p>Text Text Text</p></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

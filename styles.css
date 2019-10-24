@@ -1,0 +1,60 @@
+body{
+  padding: 5px;
+  margin: 5px;
+  overflow-x: auto;
+}
+
+#header{
+  background-color: blue;
+  text-align: center;
+}
+
+#content{
+  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#sidebar{
+  background-color: green;
+  width: 20%;
+  text-align: center;
+}
+
+#character{
+  background-color: black;
+  max-width: 80%;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+#search{
+  background-color: purple;
+  width: 100%;
+  text-align: right;
+}
+
+#bio{
+  background-color: red;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#info {
+  background-color: cyan;
+  flex-grow: 8;
+}
+
+#image{
+  background-color: white;
+  flex-grow: 0;
+}
+
+#footer{
+  background-color: pink;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
