@@ -14,21 +14,54 @@
         <div id="sidebar">
           <p>Popular Searches</p>
           <!-- Vue list of buttons -->
-          <button type="button" v-for="name in populars" v-on:click="loadChar(name)">{{name}}</button>
+          <button type="button" v-for="hero in populars" v-on:click="loadChar(hero.id)">{{hero.name}}</button>
         </div>
         <div id="character">
           <div id="search">
             <label>Search: </label><input type="text" v-on:keyup="searchChar()" v-model="name">
-            <button type="button" v-for="suggestion in suggestions" v-on:click="loadChar(623)">{{suggestion}}</button>
+            <button type="button" v-for="suggestion in suggestions" v-on:click="loadChar(suggestion.id)">{{suggestion.name}}</button>
           </div>
           <div id="bio">
-          <div id="info"><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p></div>
-          <div id="image"><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p></div>
+          <div v-if='!character.length' id="info">
+            <p>No superhero is loaded</p>
+          </div>
+          <div v-else v-bind:class="{ typewriter: type.active }" id="info">
+            <p>Name: {{character[0].name}}</p><br>
+            <p>Powerstats:</p>
+            <p>Intelligence: {{character[0].powerstats.intelligence}}</p>
+            <p>Strength: {{character[0].powerstats.strength}}</p>
+            <p>Speed: {{character[0].powerstats.speed}}</p>
+            <p>Durability:{{character[0].powerstats.durability}}</p>
+            <p>Power: {{character[0].powerstats.power}}</p>
+            <p>Combat: {{character[0].powerstats.combat}}</p><br>
+            <p>Biography:</p>
+            <p>Full Name: {{character[0].biography.full-name}}</p>
+            <p>Alter Ego: {{character[0].biography.alter-egos}}</p>
+            <p>Aliases:</p>
+            <ul>
+            <li v-for="alias in aliases[0]">{{alias}}</li>
+            </ul>
+            <p>Birthplace: {{character[0].biography.place-of-birth}}</p><br>
+            <p>Appearance:</p>
+            <p>Gender: {{character[0].appearance.gender}}</p>
+            <p>Race: {{character[0].appearance.race}}</p>
+            <p>Height: {{character[0].appearance.height}}</p>
+            <p>Weight: {{character[0].appearance.weight}}</p>
+            <p>Eye Color: {{character[0].appearance.eye-color}}</p>
+            <p>Hair Color: {{character[0].appearance.hair-color}}</p>
+          </div>
+          <div v-if='!character.length' id="image"></div>
+          <div v-else>
+            <img class='avatar' v-bind:src="character[0].image.url" v-bind:alt="noimage" width="200px"/>
+          </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="footer"><p>Text Text Text</p></div>
+    <div id="footer">
+      <a href="https://github.com/rm13082016/creativeProject3">URL to Github</a>
+      <p>Information gathered from Super Heroes API (superheroapi.com)</p>
+      </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
   <script type="text/javascript" src="script.js"></script>
   </body>
