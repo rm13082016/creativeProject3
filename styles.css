@@ -6,7 +6,7 @@ body{
 }
 
 #header{
-  color: #000000;
+  color: white;
   text-align: center;
 }
 
@@ -18,6 +18,8 @@ body{
 #sidebar{
   background-color: #DAD7CD;
   color: #000000;
+  border-right-width: 15em;
+  border-right-color: black;
   width: 20%;
   text-align: center;
 }
@@ -54,32 +56,10 @@ body{
 
 #info {
   flex-grow: 3;
-  background-color: #000000;
-  color: #329E14;
+  color: black;
   padding: 10px;
+  text-align: left;
 }
-
-.typewriter p, ul, li {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid white; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #329E14; }
-}
-
 
 #image{
   flex-grow: 1;
@@ -87,6 +67,7 @@ body{
 
 #footer{
   background-color: #244F26;
+  color: white;
   width: 100%;
   text-align: center;
 }

@@ -22,33 +22,11 @@
             <button type="button" v-for="suggestion in suggestions" v-on:click="loadChar(suggestion.id)">{{suggestion.name}}</button>
           </div>
           <div id="bio">
-          <div v-if='!character.length' id="info">
+          <div v-if='!character.length'>
             <p>No superhero is loaded</p>
           </div>
-          <div v-else v-bind:class="{ typewriter: type.active }" id="info">
-            <p>Name: {{character[0].name}}</p><br>
-            <p>Powerstats:</p>
-            <p>Intelligence: {{character[0].powerstats.intelligence}}</p>
-            <p>Strength: {{character[0].powerstats.strength}}</p>
-            <p>Speed: {{character[0].powerstats.speed}}</p>
-            <p>Durability:{{character[0].powerstats.durability}}</p>
-            <p>Power: {{character[0].powerstats.power}}</p>
-            <p>Combat: {{character[0].powerstats.combat}}</p><br>
-            <p>Biography:</p>
-            <p>Full Name: {{character[0].biography.full-name}}</p>
-            <p>Alter Ego: {{character[0].biography.alter-egos}}</p>
-            <p>Aliases:</p>
-            <ul>
-            <li v-for="alias in aliases[0]">{{alias}}</li>
-            </ul>
-            <p>Birthplace: {{character[0].biography.place-of-birth}}</p><br>
-            <p>Appearance:</p>
-            <p>Gender: {{character[0].appearance.gender}}</p>
-            <p>Race: {{character[0].appearance.race}}</p>
-            <p>Height: {{character[0].appearance.height}}</p>
-            <p>Weight: {{character[0].appearance.weight}}</p>
-            <p>Eye Color: {{character[0].appearance.eye-color}}</p>
-            <p>Hair Color: {{character[0].appearance.hair-color}}</p>
+          <div v-else id="info">
+            <p v-for="stats in summary">{{stats}}</p>
           </div>
           <div v-if='!character.length' id="image"></div>
           <div v-else>

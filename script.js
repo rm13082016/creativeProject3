@@ -2,7 +2,7 @@
 /*global fetch */
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const key = "3188700714688606";
-console.log('v10');
+console.log('v11');
 let app = new Vue({
   el: "#root",
   data: {
@@ -18,7 +18,7 @@ let app = new Vue({
       {name:  'Hawkeye', id: '313'},
       {name:  'Batman', id: '69'}],
     character: [],
-    aliases: [],
+    summary: [],
     suggestions:[],
     name: '',
     id: '',
@@ -64,15 +64,35 @@ let app = new Vue({
           if(characterinfo.response == "success") {
           this.suggestions = [];
           this.character = [];
-          this.aliases = [];
           this.type.active = true;
           this.character.push(characterinfo);
-          this.aliases.push(characterinfo.biography.aliases);
+          this.summary = [
+            'Name: ' + this.character[0].name,
+            'Powerstats: ',
+            'Intelligence: ' + this.character[0].powerstats.intelligence,
+            'Strength: ' + this.character[0].powerstats.strength,
+            'Speed: ' + this.character[0].powerstats.speed,
+            'Durability: ' + this.character[0].powerstats.durability,
+            'Power: ' + this.character[0].powerstats.power,
+            'Combat: ' + this.character[0].powerstats.combat,
+            'Biography: ',
+            'Full Name: ' + this.character[0].biography['full-name'],
+            'Alter Ego: ' + this.character[0].biography['alter-egos'],
+            'Birthplace: ' + this.character[0].biography['place-of-birth'],
+            'Appearance: ',
+            'Gender: ' + this.character[0].appearance.gender,
+            'Race: ' + this.character[0].appearance.race,
+            'Height: ' + this.character[0].appearance.height,
+            'Weight: ' + this.character[0].appearance.weight,
+            'Eye Color: ' + this.character[0].appearance['eye-color'],
+            'Hair Color: ' + this.character[0].appearance['hair-color'],
+            ];
           }
           else{
             console.log("could not load character");
           }
         });
-    }
+    },
+
   }
 });
